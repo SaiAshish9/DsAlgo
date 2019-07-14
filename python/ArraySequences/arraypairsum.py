@@ -10,6 +10,6 @@ def sum(arr,k):
             seen.add(num)
         else:
             output.add((min(num,target),max(num,target)))
-   return '\n'.join(map(str,list(output)))
+    return '\n'.join(map(str,list(output)))
 
-   print(sum([1,3,2,2,1,3],4))
+print(sum([1,3,2,2,1,3,3,5,1,2,6,0],4))
