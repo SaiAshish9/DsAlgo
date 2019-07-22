@@ -1,5 +1,5 @@
 #include <stdio.h>
-
+#include <stdlib.h>
 struct node{
 int data;
 struct node* left,*right;
@@ -43,15 +43,14 @@ void prepend(){
   }
 }
 
-void length(){
+int length(){
 struct node* temp=root;
 int count=0;
 while(temp!=NULL){
   count++;
   temp=temp->right;
 }
-printf("%d\n",count );
-}
+return count;}
 
 void display(){
   struct node* temp=root;
@@ -59,13 +58,14 @@ void display(){
     printf("empty list\n" );
   }
   while(temp!=NULL){
-    printf("%d--> ",temp->data);
+    printf("%d <--> ",temp->data);
     temp=temp->right;
   }
 }
 
 void insert(){
   struct node* temp,*p;
+  p=root;
 int loc,i=1;
 printf("Enter loc:");
 scanf("%d",&loc);
@@ -98,7 +98,7 @@ void main(){
     printf("double linked lists operations:\n" );
    printf("1.Append\n");
    printf("2.Prepend\n" );
-   printf("3.Insert\n" );
+   printf("3.Add After\n" );
    printf("4.Length\n" );
    printf("5.Display\n" );
 printf("6.Delete\n" );
@@ -106,18 +106,18 @@ printf("7.Exit\n" );
 printf("Enter ur choice:\n" );
 scanf("%d",&c );
 switch (c) {
-  case 1:Append();
+  case 1:append();
   break;
-  case 2:Prepend();
+  case 2:prepend();
   break;
-  case 3:Insert();
+  case 3:insert();
   break;
-  case 4:printf("%d\n",Length());
+  case 4:printf("%d\n",length() );
   break;
-  case 5:Display();
+  case 5:display();
   break;
-  case 6:Delete();
-  break;
+  // case 6:delete();
+  // break;
   case 7:exit(0);
   break;
   default:printf("Invalid choice\n" );
