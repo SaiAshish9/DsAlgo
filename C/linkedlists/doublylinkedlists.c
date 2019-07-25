@@ -88,7 +88,26 @@ p->right=temp;
 }
 
 }
+void Delete(){
+struct node* temp;
+int loc;
+printf("Enter loc to delete\n" );
+scanf("%d",&loc );
+if(loc>length()){
+  printf("Not Possible!");
+}else{
+  struct node* p=root,*q;
+  int i=1;
+  while (i<loc) {
+    p=p->right;
+i++;
+  }
+p->left->right=p->right;
+p->right->left=p->left;
+  free(p);
+}
 
+}
 
 
 
@@ -116,8 +135,8 @@ switch (c) {
   break;
   case 5:display();
   break;
-  // case 6:delete();
-  // break;
+  case 6:Delete();
+  break;
   case 7:exit(0);
   break;
   default:printf("Invalid choice\n" );
