@@ -13,6 +13,8 @@ void Insert(void);
 void Display(void);
 int Length(void);
 void Delete(void);
+void reverse(void);
+
 void main() {
   int c;
   while(1){
@@ -23,7 +25,9 @@ void main() {
    printf("4.Length\n" );
    printf("5.Display\n" );
 printf("6.Delete\n" );
-printf("7.Exit\n" );
+printf("7.Reverse\n" );
+
+printf("8.Exit\n" );
 printf("Enter ur choice:\n" );
 scanf("%d",&c );
 switch (c) {
@@ -39,8 +43,10 @@ switch (c) {
   break;
   case 6:Delete();
   break;
-  case 7:exit(0);
+  case 7:reverse();
   break;
+  case 8:exit(0);
+
   default:printf("Invalid choice\n" );
   break;
 }
@@ -149,4 +155,27 @@ i++;
   free(q);
 }
 
+}
+
+void reverse(){
+  int i,j,len,k,temp;
+  len=Length();
+  i=0;
+  j=len-1;
+  struct node* p,*q;
+  p=root,q=root;
+  while(i<j){
+    k=0;
+    while(k<j){
+      q=q->link;
+      k++;
+    }
+    temp=p->data;
+    p->data=q->data;
+    q->data=temp;
+    i++;
+    j--;
+    p=p->link;
+    q=root;
+  }
 }
