@@ -19,8 +19,8 @@ else{
   }
 }
   }
-void swap(int *a,int *b){
-  int t=*a;
+void swap(char *a,char *b){
+  char t=*a;
   *a=*b;
   *b=t;
 }
