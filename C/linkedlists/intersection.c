@@ -1,0 +1,11 @@
+p=first;
+while(p)
+push(&stack1,p);
+p=second
+while(p)
+push(&stack2,p);
+while(top(stack1)==top(stack2))
+{p=pop(&stack1);
+pop(&stack2);
+}
+printf("%d\n",p->data);

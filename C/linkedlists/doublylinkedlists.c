@@ -6,6 +6,25 @@ struct node* left,*right;
 };
 struct node* root=NULL;
 
+
+void reverse(){
+  struct node *p,*temp;
+p=root;
+
+while(p!=NULL){
+  temp=p->right;
+  p->right=p->left;
+  p->left=temp;
+  p=p->left;
+  if(p!=NULL&&p->right==NULL)
+  root=p;
+}
+
+}
+
+
+
+
 void append(){
   struct node* temp;
   temp=(struct node*)malloc(sizeof(struct node));
@@ -62,6 +81,10 @@ void display(){
     temp=temp->right;
   }
 }
+
+
+
+
 
 void insert(){
   struct node* temp,*p;
@@ -121,7 +144,8 @@ void main(){
    printf("4.Length\n" );
    printf("5.Display\n" );
 printf("6.Delete\n" );
-printf("7.Exit\n" );
+printf("7.Reverse\n" );
+printf("8.Exit\n" );
 printf("Enter ur choice:\n" );
 scanf("%d",&c );
 switch (c) {
@@ -137,8 +161,9 @@ switch (c) {
   break;
   case 6:Delete();
   break;
-  case 7:exit(0);
+  case 7:reverse();
   break;
+  case 8:exit(0);
   default:printf("Invalid choice\n" );
   break;
 }

@@ -15,6 +15,14 @@ int Length(void);
 void Delete(void);
 void reverse(void);
 
+void recDisp(struct node* p){
+  if(p!=NULL){
+  // printf("%d",p->data);
+    recDisp(p->link);
+    printf("%d -->",p->data);
+  }
+  printf("\n");
+}
 void main() {
   int c;
   while(1){
@@ -26,8 +34,9 @@ void main() {
    printf("5.Display\n" );
 printf("6.Delete\n" );
 printf("7.Reverse\n" );
+printf("8.ReverseDisplay\n" );
 
-printf("8.Exit\n" );
+printf("9.Exit\n" );
 printf("Enter ur choice:\n" );
 scanf("%d",&c );
 switch (c) {
@@ -45,7 +54,9 @@ switch (c) {
   break;
   case 7:reverse();
   break;
-  case 8:exit(0);
+  case 7:recDisp(root);
+  break;
+  case 9:exit(0);
 
   default:printf("Invalid choice\n" );
   break;
